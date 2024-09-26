@@ -42,4 +42,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function tickets(){
+        return $this->hasMany(Ticket::class)->select('id','user_id','ticket_title','ticket_issues','status','created_at');
+    }
 }
